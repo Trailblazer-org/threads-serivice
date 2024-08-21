@@ -37,11 +37,13 @@ const threadsRepository = {
   update: async (id: string, dataThread: IThread) => {
     try {
       const { title, content } = dataThread;
+      console.log(title, content, id)
       const thread = await ThreadModel.findByIdAndUpdate(
         { _id: id },
         { title, content },
         { new: true }
       );
+      console.log(thread)
       return thread;
     } catch (error) {
       console.error(error);

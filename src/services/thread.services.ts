@@ -37,9 +37,11 @@ const threadService = {
   updateThread: async (id: string, dataThread: IThread) => {
     try {
       const { title, content } = dataThread;
-      if (!title || !content) {
-        throw new Error("Title and content are required");
-      }
+      console.log(title, content, id)
+
+      // if (!title || !content) {
+      //   throw new Error("Title and content are required");
+      // }
 
       const thread = await threadsRepository.update(id, dataThread);
       return thread;
