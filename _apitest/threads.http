@@ -1,0 +1,26 @@
+### get all
+GET http://localhost:8001/threads
+
+### get by id
+GET http://localhost:8001/threads/66c5eca2cb718b183184e1f6
+
+### create
+POST http://localhost:8001/threads
+Content-Type: application/json
+
+{
+  "title": "semangat pagi",
+  "content": "semangat pagi semoga harimu menyenangkan (emot bunga2)"
+}
+
+### update
+PUT http://localhost:8001/threads/66c5eca2cb718b183184e1f6
+Content-Type: application/json
+
+{
+  "title": "semangat",
+  "content": "wleeee 🤘😝🤘"
+}
+
+### delete
+DELETE http://localhost:8001/threads/66c60111231e16e0f3356344
