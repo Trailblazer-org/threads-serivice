@@ -1,6 +1,11 @@
 import {model, Schema} from "mongoose";
 
 const threadSchema = new Schema({
+    // user_id: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User',
+    //     required: true
+    // },
     title: {
         type: String,
         required: true

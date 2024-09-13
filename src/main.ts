@@ -7,11 +7,10 @@ import { middleWareCheckorigin } from './middleware/treads.middleware';
 dotenv.config();
 
 const app = express();
-
 app.use(express.json());
 
 app.use(middleWareCheckorigin)
-app.use('/threads', ThreadRoutes);
+app.use('/', ThreadRoutes);
 
 mongoose.connect(process.env.MONGO_URI as string)
     .then(() => {

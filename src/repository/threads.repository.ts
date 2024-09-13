@@ -9,6 +9,7 @@ const threadsRepository = {
         title,
         content,
       });
+      console.log(thread);
       const newThread = await thread.save();
       return newThread;
     } catch (error) {
