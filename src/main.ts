@@ -1,12 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 import { ThreadRoutes } from './routes/threads.routes';
 import { middleWareCheckorigin } from './middleware/treads.middleware';
 
 dotenv.config();
 
 const app = express();
+app.use(cookieParser())
 app.use(express.json());
 
 app.use(middleWareCheckorigin)
