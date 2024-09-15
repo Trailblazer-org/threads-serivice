@@ -4,8 +4,8 @@ import { IThread } from "../types/entity";
 const threadService = {
   createThread: async (dataThread: IThread) => {
     try {
-      const { title, content } = dataThread;
-      if (!title || !content) {
+      const {userId, title, content } = dataThread;
+      if (!userId || !title || !content) {
         throw new Error("Title and content are required");
       }
 

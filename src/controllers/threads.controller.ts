@@ -5,13 +5,15 @@ import threadService from "../services/thread.services";
 const threadController = {
   handleCreateThread: async (req: Request, res: Response) => {
     try {
+      const userId = (req as any).user.id;
       const { title, content } = req.body;
-      const dataThread: IThread = { title, content };
+      console.log((req as any).user);
+      const dataThread: IThread = {userId, title, content };
       const newThread = await threadService.createThread(dataThread);
       res.status(201).json(newThread);
     } catch (error) {
       res.status(500).json({error});
-    }
+    } 
   },
 
   handleGetAllThread: async (req: Request, res: Response) => {
@@ -36,8 +38,9 @@ const threadController = {
   handleUpdateThread: async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
+      const userId = (req as any).user.id;
       const { title, content } = req.body;
-      const dataThread: IThread = { title, content };
+      const dataThread: IThread = {userId, title, content };
       const thread = await threadService.updateThread(id, dataThread);
       res.status(200).json({message: "update succes", data: thread});
     } catch (error) {

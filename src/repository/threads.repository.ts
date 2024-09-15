@@ -4,18 +4,19 @@ import { IThread } from "../types/entity";
 const threadsRepository = {
   create: async (dataThread: IThread) => {
     try {
-      const { title, content } = dataThread;
+      const {userId, title, content } = dataThread;
       const thread = new ThreadModel({
+        userId,
         title,
         content,
       });
-      console.log(thread);
+      // console.log(thread);
       const newThread = await thread.save();
       return newThread;
     } catch (error) {
       console.log(error);
     }
-  },
+  }, 
 
   getAll: async () => {
     try {

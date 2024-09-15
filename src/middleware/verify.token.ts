@@ -2,8 +2,9 @@ import {Request, Response, NextFunction} from "express";
 import jwt from 'jsonwebtoken';
 
 export const verifyToken = (req: Request, res: Response, next: NextFunction) => {
-    const token = req.cookies.token; 
-
+    console.log(req.cookies.accessToken);
+    const token = req.cookies.accessToken; 
+    // console.log(req.body)
     if(!token) {
         return res.status(401).json({message: 'Unauthorized'});
     }
